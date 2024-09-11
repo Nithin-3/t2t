@@ -1,0 +1,194 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: orange;
+    color: black;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.loinpg {
+    /* background: no-repeat center; */
+    background-size: cover;
+    background-image: url("https://wallpaperaccess.com/full/8045532.png");
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inn {
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 9px 40px;
+    height: 40vh;
+    width: 40vw;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 7px 7px 15px #000;
+}
+
+.inpu {
+    all: unset;
+    margin: 0.6rem;
+    width: 90%;
+    border-bottom: 2px dashed black;
+    transition: all 300ms;
+}
+
+.inpu:hover {
+    font-size: 1.18rem;
+}
+.inpur{
+    transition: all 300ms;
+}
+.inpur:hover{
+    transform: scale(1.3);
+    margin-right: 3px;
+}
+
+.inn * {
+    margin-bottom: 10px;
+}
+
+.inn h2 {
+    color: rgb(7, 7, 7);
+}
+
+.ok {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 5px;
+}
+
+.ok video {
+    border: 2px solid black;
+    width: 100%;
+    height: 75vh;
+}
+
+.low1 {
+    background-color: aqua;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    height: 22vh;
+}
+
+.low1 textarea {
+    width: 99%;
+    height: 1.3rem;
+    padding: 5px;
+    resize: none;
+    align-self: flex-end;
+    outline: none;
+}
+
+.low2 {
+    background-color: #fff;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 60% 40%;
+    height: 22vh;
+}
+
+.low2 .banner {
+    width: 100%;
+    border: 2px solid black;
+}
+
+#nxt {
+    appearance: none;
+    background-color: #000000;
+    border: 2px solid #1a1a1a;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family:
+        Roobert,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    align-self: center;
+    will-change: transform;
+}
+
+#nxt:disabled {
+    pointer-events: none;
+}
+
+#nxt:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+#nxt:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.button-50 {
+    appearance: button;
+    color: #fff;
+    outline: none;
+    border: 1px solid #000;
+    background: #a636f7;
+    border-radius: 0.6rem;
+    transition: all 0.35s;
+}
+
+.button-50:focus {
+    text-decoration: none;
+}
+
+.button-50:hover {
+    border-radius: 1.4rem;
+    font-size: 1.2rem;
+    background: #f736e7;
+    text-decoration: none;
+}
+
+.button-50:active {
+    box-shadow: rgba(0, 0, 0, 0.125) 0 3px 5px inset;
+    outline: 0;
+}
+
+.button-50:not([disabled]):active {
+    box-shadow:
+        #fff 2px 2px 0 0,
+        #000 2px 2px 0 1px;
+    transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+    .button-50 {
+        padding: 12px 50px;
+    }
+}

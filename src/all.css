@@ -1,0 +1,102 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    background-color:orange;
+}
+.loinpg {
+    background-size: cover;
+    background-image: url("https://wallpaperaccess.com/full/8045532.png");
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.inn {
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 9px 40px;
+    width: min(90vw, 400px);
+    aspect-ratio: 1 / 1;
+    padding: 1rem;
+    text-align: center;
+    display:grid;
+    place-items:center;
+    box-shadow: 7px 7px 15px #000;
+}
+
+.inpu {
+    all: unset;
+    width: 80%;
+    border-bottom: 2px dashed black;
+    transition: all 300ms;
+    display: block;
+}
+
+.inpu-s {
+    width: 80%;
+    border-bottom: 2px dashed black;
+}
+
+.inpu:hover {
+    font-size: 1.18rem;
+}
+
+.inpur {
+    transition: all 300ms;
+}
+
+.inpur:hover {
+    transform: scale(1.3);
+    margin-right: 3px;
+}
+
+.inn * {
+    margin-bottom: 10px;
+}
+
+.inn h2 {
+    color: rgb(7, 7, 7);
+    font-size: 1.5rem;
+}
+
+.button-50 {
+    appearance: button;
+    color: #fff;
+    outline: none;
+    border: 1px solid #000;
+    background: #a636f7;
+    border-radius: 0.6rem;
+    transition: all 0.35s;
+    padding: 12px 30px;
+    font-size: 1rem;
+    width: 70%;
+    max-width: 250px;
+}
+
+.button-50:focus {
+    text-decoration: none;
+}
+
+.button-50:hover {
+    border-radius: 1.4rem;
+    font-size: 1.1rem;
+    background: #f736e7;
+    text-decoration: none;
+}
+
+.button-50:active {
+    box-shadow: rgba(0, 0, 0, 0.125) 0 3px 5px inset;
+    outline: 0;
+}
+
+.button-50:not([disabled]):active {
+    box-shadow:
+        #fff 2px 2px 0 0,
+        #000 2px 2px 0 1px;
+    transform: translate(2px, 2px);
+}
+

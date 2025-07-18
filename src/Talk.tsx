@@ -9,6 +9,9 @@ export const Talk: React.FC = () => {
     const peer = useRef<RTCPeerConnection | null>(null);
     const sock = useRef<Socket>(null);
     const [txt,stxt] = useState('');
+    const [locLoaded, setLocLoaded] = useState(false);
+const [remLoaded, setRemLoaded] = useState(false);
+
     useEffect(() => {
         const id = sessionStorage.getItem('id');
         if (!id) {
@@ -19,6 +22,7 @@ export const Talk: React.FC = () => {
             stream.current = strm;
             locVid.current!.srcObject = strm;
             strm.getTracks().forEach(track => peer.current?.addTrack(track, strm));
+            setLocLoaded(true);
         }
         navigator.mediaDevices?.getUserMedia({video: true, audio: true}).then(setstrm).then(()=>find())
         sock.current = io("http://192.168.80.147:1010/");
@@ -69,7 +73,7 @@ export const Talk: React.FC = () => {
     const find = (fetc = true) => {
         const msgContainer = document.getElementById('msg');
         if (msgContainer) {
-            msgContainer.innerHTML = ''; // Fastest and simplest
+            msgContainer.innerHTML = '';
         }
         if (peer.current) {
             peer.current.onicecandidate = null;
@@ -86,11 +90,13 @@ export const Talk: React.FC = () => {
         }
         peer.current.ontrack = (e) => {
             remVid.current!.srcObject = e.streams[0];
+            setRemLoaded(true);
         }
         peer.current.onconnectionstatechange = () => {
             const state = peer.current?.connectionState;
             if (state === "disconnected" || state === "failed" || state === "closed") {
                 sock.current!.emit("exit", sessionStorage.getItem('id')!);
+                setRemLoaded(false);
             }
         };
         fetc && fetch("http://192.168.80.147:1010/", {headers: {id: sessionStorage.getItem('id')! }}).then(t => t.text()).then(t => {
@@ -131,8 +137,44 @@ export const Talk: React.FC = () => {
     return (
         <>
             <div className='video-chat'>
-                <video ref={locVid} autoPlay muted style={{transform: "scaleX(-1)"}}></video>
-                <video ref={remVid} autoPlay></video>
+                <div style={{ position: "relative" }}>
+                    <video ref={locVid} autoPlay muted style={{ transform: "scaleX(-1)" }} />
+                    {locLoaded || (
+                        <img
+                            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FMydKZ8HdiPWALc0Lqf%2Fgiphy.gif&f=1&nofb=1&ipt=4e6d5012e6891e5059aedca744c9738cd5213374c8ea536b0d8a827d9f0c28dc"
+                            alt="Loading local video"
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                borderRadius: '10px',
+                                backgroundColor: 'rgba(0,0,0,0.2)'
+                            }}
+                        />
+                    )}
+                </div>
+                <div style={{ position: "relative" }}>
+                    <video ref={remVid} autoPlay />
+                    {remLoaded || (
+                        <img
+                            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FMydKZ8HdiPWALc0Lqf%2Fgiphy.gif&f=1&nofb=1&ipt=4e6d5012e6891e5059aedca744c9738cd5213374c8ea536b0d8a827d9f0c28dc"
+                            alt="Loading remote video"
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                borderRadius: '10px',
+                                backgroundColor: 'rgba(0,0,0,0.2)'
+                            }}
+                        />
+                    )}
+                </div>
             </div>
             <div className="root-event">
                 <div>

@@ -138,7 +138,7 @@ html, body {
     box-sizing: border-box;
 }
 
-.video-chat > video {
+.video-chat > div > video {
     max-width: 100%;
     width: 640px;
     aspect-ratio: 16 / 9;

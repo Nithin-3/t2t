@@ -141,7 +141,7 @@ const [remLoaded, setRemLoaded] = useState(false);
                     <video ref={locVid} autoPlay muted style={{ transform: "scaleX(-1)" }} />
                     {locLoaded || (
                         <img
-                            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FMydKZ8HdiPWALc0Lqf%2Fgiphy.gif&f=1&nofb=1&ipt=4e6d5012e6891e5059aedca744c9738cd5213374c8ea536b0d8a827d9f0c28dc"
+                            src="./t2t-load.gif"
                             alt="Loading local video"
                             style={{
                                 position: 'absolute',
@@ -160,7 +160,7 @@ const [remLoaded, setRemLoaded] = useState(false);
                     <video ref={remVid} autoPlay />
                     {remLoaded || (
                         <img
-                            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FMydKZ8HdiPWALc0Lqf%2Fgiphy.gif&f=1&nofb=1&ipt=4e6d5012e6891e5059aedca744c9738cd5213374c8ea536b0d8a827d9f0c28dc"
+                            src="./t2t-load.gif"
                             alt="Loading remote video"
                             style={{
                                 position: 'absolute',

@@ -99,7 +99,7 @@ const [remLoaded, setRemLoaded] = useState(false);
                 setRemLoaded(false);
             }
         };
-        fetc && fetch("http://192.168.80.147:1010/", {headers: {id: sessionStorage.getItem('id')! }}).then(t => t.text()).then(t => {
+        fetc && fetch("https://t2t-ser.onrender.com/", {headers: {id: sessionStorage.getItem('id')! }}).then(t => t.text()).then(t => {
             if (t) {
                 console.log("roomMate",t)
                 sessionStorage.setItem('roomMate', t)

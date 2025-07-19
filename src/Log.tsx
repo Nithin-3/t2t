@@ -12,7 +12,7 @@ export const Log: React.FC = () => {
     const [countrys, scountrys] = useState<any[]>([]);
 
     useEffect(() => {
-         fetch('http://192.168.80.147:1010/country').then(res => res.json()).then(r=>{
+         fetch('https://t2t-ser.onrender.com/country').then(res => res.json()).then(r=>{
             scountry(r.country	|| 'global')
         }).catch()
         fetch('https://restcountries.com/v3.1/all?fields=name,cca2').then(r => r.json()).then(data => {
@@ -33,7 +33,7 @@ export const Log: React.FC = () => {
     const submit = (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (name.current!.value && age && (gen.current!.checked || geen.current!.checked)) {
-            fetch("http://192.168.80.147:1010/",{
+            fetch("https://t2t-ser.onrender.com/",{
                 method:'POST',
                 headers:{
                     'Content-Type': 'application/json',

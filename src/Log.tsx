@@ -12,10 +12,10 @@ export const Log: React.FC = () => {
     const [countrys, scountrys] = useState<any[]>([]);
 
     useEffect(() => {
-         fetch('https://t2t-ser.onrender.com/country').then(res => res.json()).then(r=>{
+         fetch(`${process.env.REACT_APP_serv!}country`).then(res => res.json()).then(r=>{
             scountry(r.country	|| 'global')
         }).catch()
-        fetch('https://restcountries.com/v3.1/all?fields=name,cca2').then(r => r.json()).then(data => {
+        fetch(process.env.REACT_APP_count!).then(r => r.json()).then(data => {
             const sorted = data.sort((a: any, b: any) => a.name.common.localeCompare(b.name.common));
             const opts = [
                 { value: 'global', label: '🌐 Global' },
@@ -33,7 +33,7 @@ export const Log: React.FC = () => {
     const submit = (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (name.current!.value && age && (gen.current!.checked || geen.current!.checked)) {
-            fetch("https://t2t-ser.onrender.com/",{
+            fetch(process.env.REACT_APP_serv!,{
                 method:'POST',
                 headers:{
                     'Content-Type': 'application/json',

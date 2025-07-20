@@ -10,7 +10,7 @@ export const Talk: React.FC = () => {
     const sock = useRef<Socket>(null);
     const [txt,stxt] = useState('');
     const [locLoaded, setLocLoaded] = useState(false);
-const [remLoaded, setRemLoaded] = useState(false);
+    const [remLoaded, setRemLoaded] = useState(false);
 
     useEffect(() => {
         const id = sessionStorage.getItem('id');
@@ -25,7 +25,7 @@ const [remLoaded, setRemLoaded] = useState(false);
             setLocLoaded(true);
         }
         navigator.mediaDevices?.getUserMedia({video: true, audio: true}).then(setstrm).then(()=>find())
-        sock.current = io("http://192.168.80.147:1010/");
+        sock.current = io(process.env.REACT_APP_sock!);
         sock.current.emit('set', id);
 
         sock.current.on('offer', async (roomMate, offer) => {
@@ -99,7 +99,7 @@ const [remLoaded, setRemLoaded] = useState(false);
                 setRemLoaded(false);
             }
         };
-        fetc && fetch("https://t2t-ser.onrender.com/", {headers: {id: sessionStorage.getItem('id')! }}).then(t => t.text()).then(t => {
+        fetc && fetch(process.env.REACT_APP_serv!, {headers: {id: sessionStorage.getItem('id')! }}).then(t => t.text()).then(t => {
             if (t) {
                 console.log("roomMate",t)
                 sessionStorage.setItem('roomMate', t)

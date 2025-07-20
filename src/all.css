@@ -30,6 +30,7 @@ html, body {
     background: url("https://picsum.photos/1920/1080") center/cover no-repeat;
     background-color: var(--bg);
     color: var(--text);
+    min-height:100vh;
 }
 
 .loinpg {
@@ -153,6 +154,8 @@ html, body {
     box-sizing: border-box;
     gap: 16px;
     padding: 16px;
+    position: absolute;
+    bottom:1%;
 }
 
 .root-event > div {

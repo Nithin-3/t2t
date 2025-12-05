@@ -2,8 +2,7 @@
 
 This app lets you video chat with anyone, similar to Omegle. Instantly connect and start a random video conversation with strangers from anywhere in the world.
 
-**Live Demo:**  
-[https://nithin-3.github.com/t2t](https://nithin-3.github.com/t2t)
+[![Watch the screen recording](https://img.youtube.com/vi/VIDEO_ID/default.jpg)](https://nithin-3.github.io/portfo/galven/t2t.mp4)
 
 ## Features
 
